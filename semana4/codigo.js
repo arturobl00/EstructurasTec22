@@ -23,6 +23,39 @@ function mostrarPaises(){
 //Funcion para agregar elementos a mi arreglo.
 function agregarPaises(){
     dato = document.getElementById("pais").value;
-    paises.push(dato);
-    alert("Dato Registrado consulte en boton mostrar datos");
+    if(dato != ""){
+        paises.push(dato);
+        alert("Dato Registrado con exito!");
+        document.getElementById("pais").value = "";
+    }else{
+        alert("Debes agregar el pais antes de precionar el boton");
+    }
+    
+    mostrarPaises();
+}
+
+//Funcion eliminar el ultimo elemento en el array
+function eliminarUltimo(){
+    //funcion para determiar el tamaño de un arreglo
+    var tamaño = paises.length;
+    if(tamaño > 0){
+        paises.pop();
+        alert("La ultima posicion del arreglo fue eliminada");
+    }else{
+        alert("El arreglo ya esta vacio");
+    }
+    mostrarPaises();
+}
+
+//Funcion para eliminar la primera posicion del array
+function primeroUltimo(){
+    //funcion para determiar el tamaño de un arreglo
+    var tamaño = paises.length;
+    if(tamaño > 0){
+        paises.shift();
+        alert("La primera posicion del arreglo fue eliminada");
+    }else{
+        alert("El arreglo ya esta vacio");
+    }
+    mostrarPaises();
 }
