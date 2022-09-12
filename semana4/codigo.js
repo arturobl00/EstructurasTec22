@@ -59,3 +59,42 @@ function primeroUltimo(){
     }
     mostrarPaises();
 }
+
+//Funcion para eliminar un registro en una posición
+function posicion(){
+    var pos = document.getElementById("pos").value;
+    if (pos >= 1){
+        if(pos <= paises.length){
+            paises.splice(pos-1, 1);
+            alert("La " + pos + " posicion del arreglo fue eliminada");
+        }
+        else{
+            alert("La " + pos + " no esta disponible");
+        }
+    }
+    else{
+        alert("La " + pos + " no esta disponible");
+    }
+    mostrarPaises();
+}
+
+//Funcion para editar el contenido de una posición
+function editar(){
+    var pos1 = document.getElementById("pos1").value;
+    var val1 = document.getElementById("val1").value;
+    console.log(pos1);
+
+    if (pos1 >= 1){
+        if(pos1 <= paises.length){
+            paises[pos1-1] = val1;
+            alert("La " + pos1 + " posicion del arreglo fue Editada");
+        }
+        else{
+            alert("La " + pos1 + " no Existe");
+        }
+    }
+    else{
+        alert("La " + pos1 + " no Existe");
+    }
+    mostrarPaises();   
+}
