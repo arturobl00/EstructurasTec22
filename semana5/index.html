@@ -42,6 +42,18 @@
             </tbody>
         </table>
     </div>
+    <div id="editar" class="container mt-1 py-3 border border-primary rounded-2" style="display:none;">
+        <h2 class="display-5">Formulario de Edición</h2>
+        <p>Edite el titulo de la pelicula.</p>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="tituloE" placeholder="Nuevo Nombre de la Película">
+            <label for="titulo">Introdusca el Título de la Película</label>
+            <input type="text" id="temporal" value="" style="display:none;"/>
+        </div>
+        <p>
+            <button class="btn btn-outline-success" onclick="guardarcambios()">Editar Registro</button>
+        </p>
+    </div>
     <script src="codigos.js"></script>
 </body>
 </html>
