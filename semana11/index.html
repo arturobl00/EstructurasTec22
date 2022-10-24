@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <title>Proyecto JS para Carrito de Compras</title>
+</head>
+<body>
+    <script src="js/bootstrap.min.js"></script>
+    <div class="container mt-3">
+        <h1 class="text-primary">Estructuras de datoskw</h1>
+        <div class="row">
+            <!--Mostrar productos-->
+            <main id="items" class="col-sm-8 row"></main>
+            <!--Carrito de compras-->
+            <aside class="col-sm-4">
+                <h2>Carrito</h2>
+                <ul id="carrito" class="list-group"></ul>
+                <hr>
+                <p class="text-rigth">
+                    Total:
+                    <span id="total">&dollar;</span> 
+                </p>
+                <button id="boton-vaciar" class="btn btn-danger">Vaciar Carrito</button>
+            </aside>
+        </div>
+    </div>
+    <script src="codigo.js"></script>
+</body>
+</html>

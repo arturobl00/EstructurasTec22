@@ -68,6 +68,23 @@ function Mostrar(){
         }
     }else{
         console.log("Burbuja Decendente");
+        let burbuja;
+        for(let pos = 0; pos < tamaño-1; pos++){
+            for(let pos1 = (pos + 1); pos1 < tamaño; pos1++){
+                console.log(pos, "-", miArreglo[pos],pos1, "-", miArreglo[pos1]);
+                if(miArreglo[pos] < miArreglo[pos1]){
+                    burbuja = miArreglo[pos];
+                    miArreglo[pos] = miArreglo[pos1];
+                    miArreglo[pos1] = burbuja;
+                    console.log("Hay cambio");
+                }
+            }
+        }
+        for(let pos = 0; pos < tamaño; pos++){
+            document.getElementById("mostrarDatos").innerHTML += '<p>Posición: ' + 
+            (pos + 1) + ': ' + 
+            miArreglo[pos] + '</p>';
+        }
     }
     
 }
