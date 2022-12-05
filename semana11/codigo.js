@@ -40,6 +40,12 @@ const DOMbotonVaciar = document.querySelector('#boton-vaciar');
 //Funciones
 
 //Funcion agregar los elemetos del Json a productos
+renderizarProductos();
+renderizarCarrito();
+
+
+
+
 
 function renderizarProductos(){
     basedatos.forEach((info) => {
@@ -111,17 +117,27 @@ function renderizarCarrito(){
      miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio}${divisa}`;
      // Boton de borrar
      const miBoton = document.createElement('button');
-     miBoton.classList.add('btn', 'btn-danger', 'mx-5');
+     miBoton.classList.add('btn', 'btn-danger', 'mx-2');
      miBoton.textContent = 'X';
      miBoton.style.marginLeft = '1rem';
      miBoton.dataset.item = item;
      miBoton.addEventListener('click', borrarItemCarrito);
+     //Boton descontar
+     const miBoton1 = document.createElement('button');
+     miBoton1.classList.add('btn', 'btn-warning', 'mx-2');
+     miBoton1.textContent = '-';
+     miBoton1.style.marginLeft = '1rem';
+     miBoton1.dataset.item = item;
+     miBoton1.addEventListener('click', borrarItem);
      // Mezclamos nodos
      miNodo.appendChild(miBoton);
      DOMcarrito.appendChild(miNodo);
+
+     miNodo.appendChild(miBoton1);
+     DOMcarrito.appendChild(miNodo);
  });
 // Renderizamos el precio total en el HTML
-//DOMtotal.textContent = calcularTotal();
+DOMtotal.textContent = calcularTotal();
 }
 
 function borrarItemCarrito(evento) {
@@ -134,3 +150,35 @@ function borrarItemCarrito(evento) {
     // volvemos a renderizar
     renderizarCarrito();
 }
+
+function borrarItem(evento){
+    console.log("Entro")
+    // Obtenemos el producto ID que hay en el boton pulsado
+    const id = evento.target.dataset.item;
+    const pos = carrito.indexOf(id);
+    carrito.splice(pos,1);
+    console.log(id)
+    console.log(pos)
+    renderizarCarrito();
+}
+
+function calcularTotal() {
+    // Recorremos el array del carrito 
+    return carrito.reduce((total, item) => {
+        // De cada elemento obtenemos su precio
+        const miItem = basedatos.filter((itemBaseDatos) => {
+            return itemBaseDatos.id === parseInt(item);
+        });
+        // Los sumamos al total
+        return total + miItem[0].precio;
+    }, 0).toFixed(2);
+}
+
+function vaciarCarrito() {
+    // Limpiamos los productos guardados
+    carrito = [];
+    // Renderizamos los cambios
+    renderizarCarrito();
+}
+
+

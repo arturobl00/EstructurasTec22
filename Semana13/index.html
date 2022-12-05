@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codigo de Encriptación</title>
+</head>
+<body>
+    <h1>Encriptación Julio Cesar</h1>
+    <form>
+        <input type="text" id="palabra"/>
+        <br/>
+        <input id="rango" type="range" value="1" min="1" max="10" oninput="this.nextElementSibling.value = this.value"/>
+        <output>1</output>
+        <button onclick="codificar()">Cifrar</button>
+    </form>
+    <script src="codigo.js"></script>
+</body>
+</html>
